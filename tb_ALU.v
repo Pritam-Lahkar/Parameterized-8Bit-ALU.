@@ -22,14 +22,13 @@
 
 module tb_ALU ; parameter WIDTH = 8;
 
-    // Registers hold values to drive the inputs
+    
     reg [WIDTH-1:0] tb_a;
-    reg [WIDTH-1:0] tb_b;
+  reg [WIDTH-1:0] tb_b;
     reg [2:0]      tb_opcode;
 
-    // Wires observe the outputs
-    wire [WIDTH-1:0] tb_result;
-    wire             tb_zero;
+    
+    wire [WIDTH-1:0] tb_result;    wire             tb_zero;
     wire   tb_carry ;
     wire  tb_overflow ;
 ALU #(.WIDTH(WIDTH)) uut (
@@ -42,20 +41,19 @@ ALU #(.WIDTH(WIDTH)) uut (
         .overflow(tb_overflow)
     );
     initial begin
-        // Initialize Inputs to zero
+    
         tb_a = 8'd0;
-        tb_b = 8'd0;
-        tb_opcode = 3'b000;
+      tb_b = 8'd0;     tb_opcode = 3'b000;
         
-        // Wait 100 ns for global reset to finish
+        
         #100;
         
         tb_a = 8'd10;
         tb_b = 8'd5;
         tb_opcode = 3'b000;
         #20;
-        
-         tb_a = 8'd5;
+
+     tb_a = 8'd5;
         tb_b = 8'd5;
         tb_opcode = 3'b001;
         #20;
@@ -66,7 +64,7 @@ ALU #(.WIDTH(WIDTH)) uut (
         #20;
         
          tb_a = 8'd10;
-        tb_b = 8'd5;
+    tb_b = 8'd5;
         tb_opcode = 3'b011;
         #20;
         
@@ -80,7 +78,7 @@ ALU #(.WIDTH(WIDTH)) uut (
         tb_opcode = 3'b101;
         #20;
         
-         tb_a = 8'd10;
+    tb_a = 8'd10;
         tb_b = 8'd5;
         tb_opcode = 3'b110;
         #20;
